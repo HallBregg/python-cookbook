@@ -109,15 +109,20 @@ class DefaultDictTest:
 
 
 class CalculatingWithDict:
+    prices = {
+        'ACME': 45.23,
+        'AAPL': 612.78,
+        'IBM': 205.55,
+        'HPQ': 37.20,
+        'FB': 10.75
+    }
     def minmaxsort(self):
-        prices = {
-            'ACME': 45.23,
-            'AAPL': 612.78,
-            'IBM': 205.55,
-            'HPQ': 37.20,
-            'FB': 10.75
-        }
-        reverse_dict = zip(prices.values(), prices.keys())
+        # will return tuple of value and name
+        reverse_dict = zip(self.prices.values(), self.prices.keys())
         min_price = min(reverse_dict)
         max_price = max(reverse_dict)
         sorted_price = sorted(reverse_dict)
+
+    def minanother(self):
+        min(self.prices, key=lambda k: self.prices[k])  #  will return FB
+        min_price = self.prices[min(self.prices, key=lambda k: self.prices[k])]
