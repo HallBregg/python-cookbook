@@ -78,3 +78,46 @@ class DefaultDict:
         d.setdefault('a', []).append(2)
         d.setdefault('b', []).append(1)
         print(d)
+
+
+from collections import OrderedDict
+import json
+# To  control  the  order  of  items  in  a  dictionary,
+# you  can  use  an OrderedDict
+
+# Be aware that the size of an OrderedDict
+# is more than twice as large as a normal dictionary
+# due to the extra linked list that’s created.
+
+
+class DefaultDictTest:
+    def orddict(self):
+        d = OrderedDict()
+        d['a'] = 2
+        d['b'] = 1
+        d['c'] = 3
+        print(d.items())  # should be a: 2 b: 1 c: 3
+
+    def orddictjson(self):
+        # may be useful is we need to serialize or deserialize to json and have
+        # specific order
+        d = OrderedDict()
+        d['a'] = 2
+        d['b'] = 1
+        d['c'] = 3
+        print(json.dumps(d))
+
+
+class CalculatingWithDict:
+    def minmaxsort(self):
+        prices = {
+            'ACME': 45.23,
+            'AAPL': 612.78,
+            'IBM': 205.55,
+            'HPQ': 37.20,
+            'FB': 10.75
+        }
+        reverse_dict = zip(prices.values(), prices.keys())
+        min_price = min(reverse_dict)
+        max_price = max(reverse_dict)
+        sorted_price = sorted(reverse_dict)
