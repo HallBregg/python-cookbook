@@ -116,6 +116,7 @@ class CalculatingWithDict:
         'HPQ': 37.20,
         'FB': 10.75
     }
+
     def minmaxsort(self):
         # will return tuple of value and name
         reverse_dict = zip(self.prices.values(), self.prices.keys())
@@ -124,5 +125,24 @@ class CalculatingWithDict:
         sorted_price = sorted(reverse_dict)
 
     def minanother(self):
-        min(self.prices, key=lambda k: self.prices[k])  #  will return FB
+        min(self.prices, key=lambda k: self.prices[k])  # will return FB
         min_price = self.prices[min(self.prices, key=lambda k: self.prices[k])]
+
+
+def find_commonalities():
+    a = {
+        'x': 1,
+        'y': 2,
+        'z': 3
+    }
+
+    b = {
+        'w': 10,
+        'x': 11,
+        'y': 2
+    }
+
+    print(a.keys() & b.keys())
+
+
+find_commonalities()
